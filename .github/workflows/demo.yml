@@ -10,7 +10,7 @@ on:
 
 jobs:
   echo-job1:
-    runs-on:aws-self-hosted
+    runs-on: aws-self-hosted
     steps:
             
       - name: Run echo command
