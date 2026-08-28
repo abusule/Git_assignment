@@ -1,0 +1,21 @@
+name: Run Techmax Website
+
+on:
+  push:
+    branches:
+      - main
+  
+
+jobs:
+  Deploy:
+    runs-on: aws-self-hosted
+    steps:
+      - name: Docker pull image
+        run: docker pull techmax/techmax-website:latest
+
+      - name: Remove existing container
+        run: docker rm -f techmax-assignment || true
+      - name : Run pulled image
+        run: docker run -d --name techmax-assignment -p 80:80 techmax/techmax-website:latest  
+      
+  
