@@ -9,13 +9,24 @@ on:
       - main
 
 jobs:
-  echo-job:
+  echo-job1:
+    runs-on: ubuntu-latest
+    steps:
+            
+      - name: Run echo command
+        run: echo "Hello, GitHub Actions & CI/CD!"
+
+      - run: sleep 30
+
+  job2:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Echo message
-        run: echo "Hello, GitHub Actions & CI/CD!"!
-        
-      -run: sleep 10
+      - name: Caveat
+        run: echo "ASSIGNMENT DONE"
+          
+          
+      - name: Sleep
+        run: sleep 40
