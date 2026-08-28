@@ -1,0 +1,27 @@
+name: Github Actions Demo2
+on:
+  workflow_dispatch:
+  
+jobs:
+  echo-job1:
+    runs-on: ubuntu-latest
+    steps:
+            
+      - name: Run echo command
+        run: echo "Hello, GitHub Actions & CI/CD!"
+
+      - run: sleep 30
+
+  job2:
+    runs-on: ubuntu-latest
+    needs: echo-job1
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Caveat
+        run: echo "ASSIGNMENT DONE"
+          
+          
+      - name: Sleep
+        run: sleep 40
