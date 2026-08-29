@@ -6,16 +6,16 @@ on:
       - main
 #docker deploy.yml  
 jobs:
-    Deploy:
-      runs-on: aws-self-hosted#
-    steps:
-        - name: Docker pull image
-          run: docker pull kniru/techmax-website:latest
+  Deploy:
+    runs-on: aws-self-hosted#
+  steps:
+    - name: Docker pull image
+      run: docker pull kniru/techmax-website:latest
 
-      - name: Remove existing container
-        run: docker rm -f techmax-assignment || true
+    - name: Remove existing container
+      run: docker rm -f techmax-assignment || true
 
-      - name : Run pulled image
-        run: docker run -d --name techmax-assignment -p 80:80 kniru/techmax-website:latest  
+    - name : Run pulled image
+      run: docker run -d --name techmax-assignment -p 80:80 kniru/techmax-website:latest  
       
   
