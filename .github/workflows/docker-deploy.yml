@@ -12,7 +12,7 @@ jobs:
 
     steps:
         - name: Docker pull image
-        run: docker pull kniru/techmax-website:latest
+          run: docker pull kniru/techmax-website:latest
 
       - name: Remove existing container
         run: docker rm -f techmax-assignment || true
