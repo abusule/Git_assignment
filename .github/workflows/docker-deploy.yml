@@ -7,7 +7,7 @@ on:
   
 
 jobs:
-  Deploy:
+    Deploy:
     runs-on: aws-self-hosted
 
     steps:
