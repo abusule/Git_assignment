@@ -4,13 +4,10 @@ on:
   push:
     branches:
       - main
-  
-
+#docker deploy.yml  
 jobs:
     Deploy:
-      runs-on: aws-self-hosted
-
-
+      runs-on: aws-self-hosted#
     steps:
         - name: Docker pull image
           run: docker pull kniru/techmax-website:latest
