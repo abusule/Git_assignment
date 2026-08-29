@@ -1,0 +1,540 @@
+Create a new repo and clone it;
+ git clone git@github.com:abusule/Git_assignment.git
+Cloning into 'Git_assignment'...
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+=======This error is due to the fact that there is no ssh right
+Create ssh key 
+Check if the key is prsent
+USER@DESKTOP-POAP1KV MINGW64 ~ (main)
+$ ls -al ~/.ssh
+total 30
+drwxr-xr-x 1 USER 197121    0 Aug 27 02:29 ./
+drwxr-xr-x 1 USER 197121    0 Aug 28 13:37 ../
+drwxr-xr-x 1 USER 197121    0 Aug 23 04:34 agent/
+-rw-r--r-- 1 USER 197121  411 Aug 23 04:33 id_ed25519
+-rw-r--r-- 1 USER 197121  101 Aug 23 04:33 id_ed25519.pub
+-rw-r--r-- 1 USER 197121 4387 Aug 27 17:45 known_hosts
+-rw-r--r-- 1 USER 197121 3458 Aug 27 02:29 known_hosts.old
+
+Use the the key the have the .pub and add it to Github
+Go to Github >>> Settings >>> SSH and GPS keys >>> New SSH key
+First cat the .pub key to copy it.
+
+USER@DESKTOP-POAP1KV MINGW64 ~ (main)
+$ cat ~/.ssh/id_ed25519.pub
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPoPnubN4L6DJX6uVtRDoMhSmCPrdyADBa50HP/clT+6 abusule4u@gmail.com
+
+====Test the SSH coonection
+USER@DESKTOP-POAP1KV MINGW64 ~ (main)
+$ ssh -T git@github.com
+Hi abusule! You've successfully authenticated, but GitHub does not provide shell access.
+
+
+======Clone the Repo you created=====
+
+USER@DESKTOP-POAP1KV MINGW64 ~ (main)
+$ git clone git@github.com:abusule/Git_assignment.git
+Cloning into 'Git_assignment'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (3/3), done.
+
+====cd into the Repo
+
+USER@DESKTOP-POAP1KV MINGW64 ~ (main)
+$  cd Git_assignment/
+
+USER@DESKTOP-POAP1KV MINGW64 ~/Git_assignment (main)
+
+===check the directory info
+
+ ll
+total 1
+-rw-r--r-- 1 USER 197121 16 Aug 28 13:50 README.md
+
+USER@DESKTOP-POAP1KV MINGW64 ~/Git_assignment (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+USER@DESKTOP-POAP1KV MINGW64 ~/Git_assignment (main)
+$ git remote -v  : This  shows that the ssh is working
+# if still in http, config it to ssh by ; git remote set-url origin #git@github.com:abusule/Git_assignment.git then run "git remote -v"
+
+origin  git@github.com:abusule/Git_assignment.git (fetch)
+origin  git@github.com:abusule/Git_assignment.git (push)
+
+USER@DESKTOP-POAP1KV MINGW64 ~/Git_assignment (main)
+
+==Create fies
+
+USER@DESKTOP-POAP1KV MINGW64 ~/Git_assignment (main)
+$ touch home{1..3} && touch classwork{1..3}
+
+USER@DESKTOP-POAP1KV MINGW64 ~/Git_assignment (main)
+$ 
+
+USER@DESKTOP-POAP1KV MINGW64 ~/Git_assignment (main)
+$ 
+
+USER@DESKTOP-POAP1KV MINGW64 ~/Git_assignment (main)
+$ ll
+total 1
+-rw-r--r-- 1 USER 197121  0 Aug 28 14:10 classwork1
+-rw-r--r-- 1 USER 197121  0 Aug 28 14:10 classwork2
+-rw-r--r-- 1 USER 197121  0 Aug 28 14:10 classwork3
+-rw-r--r-- 1 USER 197121  0 Aug 28 14:10 home1
+-rw-r--r-- 1 USER 197121  0 Aug 28 14:10 home2
+-rw-r--r-- 1 USER 197121  0 Aug 28 14:10 home3
+-rw-r--r-- 1 USER 197121 16 Aug 28 13:50 README.md
+
+USER@DESKTOP-POAP1KV MINGW64 ~/Git_assignment (main)
+
+USER@DESKTOP-POAP1KV MINGW64 ~/Git_assignment (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        classwork1
+        classwork2
+        classwork3
+        home1
+        home2
+        home3
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+====Add the files and check their status again
+
+USER@DESKTOP-POAP1KV MINGW64 ~/Git_assignment (main)
+$ git add .
+
+USER@DESKTOP-POAP1KV MINGW64 ~/Git_assignment (main)
+$ 
+
+USER@DESKTOP-POAP1KV MINGW64 ~/Git_assignment (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   classwork1
+        new file:   classwork2
+        new file:   classwork3
+        new file:   home1
+        new file:   home2
+        new file:   home3
+
+==Commit and push to Github
+
+$ git commit -m "initial commit"
+[main e6711a1] initial commit
+ 6 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 classwork1
+ create mode 100644 classwork2
+ create mode 100644 classwork3
+ create mode 100644 home1
+ create mode 100644 home2
+ create mode 100644 home3
+
+USER@DESKTOP-POAP1KV MINGW64 ~/Git_assignment (main)
+$ git push origin main
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 299 bytes | 149.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To github.com:abusule/Git_assignment.git
+   c7e5636..e6711a1  main -> main
+
+   ====Github Action using the CI/CD
+
+To open vi editor use code . from the current directory and add the new folder/dir or create a directory from the Parent dir using mkdir  
+
+USER@DESKTOP-POAP1KV MINGW64 ~/Git_assignment (main)
+$ code .
+
+USER@DESKTOP-POAP1KV MINGW64 ~/Git_assignment (main)
+$ mkdir -p .github/workflows
+
+===Creating a file on the workflow
+
+
+USER@DESKTOP-POAP1KV MINGW64 ~/Git_assignment (main)
+$ mkdir -p .github/workflows
+
+USER@DESKTOP-POAP1KV MINGW64 ~/Git_assignment (main)
+
+USER@DESKTOP-POAP1KV MINGW64 ~/Git_assignment (main)
+$ git add .
+
+USER@DESKTOP-POAP1KV MINGW64 ~/Git_assignment (main)
+$ git commit -m "updated github workflows"
+[main f353b99] updated github workflows
+ 1 file changed, 21 insertions(+)
+
+USER@DESKTOP-POAP1KV MINGW64 ~/Git_assignment (main)
+$ git push origin main
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (5/5), 555 bytes | 138.00 KiB/s, done.
+Total 5 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:abusule/Git_assignment.git
+   8c62ccb..f353b99  main -> main
+
+
+Then go to github and click on the action button to see the action 
+
+
+=====Login to ec2 and connect
+This host key is known by the following other names/addresses:
+    ~/.ssh/known_hosts:25: 3.81.124.77
+    ~/.ssh/known_hosts:28: 54.161.18.162
+    ~/.ssh/known_hosts:29: 35.175.228.228
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '3.91.94.179' (ED25519) to the list of known hosts.
+Welcome to Ubuntu 26.04.1 LTS (GNU/Linux 7.0.0-1011-aws x86_64)
+
+ * Documentation:  https://docs.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Fri Aug 28 14:51:20 UTC 2026
+
+  System load:  0.03              Temperature:           -273.1 C
+  Usage of /:   39.7% of 6.61GB   Processes:             119
+  Memory usage: 26%               Users logged in:       0
+  Swap usage:   0%                IPv4 address for ens5: 172.31.46.81
+
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+Last login: Thu Aug 27 16:45:55 2026 from 159.2.9.174
+ubuntu@ip-172-31-46-81:~$ pwd
+/home/ubuntu
+ubuntu@ip-172-31-46-81:~$ 
+
+ubuntu@ip-172-31-46-81:~$ df -h
+Filesystem       Size  Used Avail Use% Mounted on
+/dev/root        6.7G  2.7G  4.0G  40% /
+tmpfs            455M     0  455M   0% /dev/shm
+tmpfs            182M  892K  181M   1% /run
+efivarfs         128K  3.3K  120K   3% /sys/firmware/efi/efivars
+tmpfs            455M     0  455M   0% /tmp
+none             1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+none             1.0M     0  1.0M   0% /run/credentials/systemd-resolved.service
+/dev/nvme0n1p13  989M  163M  760M  18% /boot
+/dev/nvme0n1p15  105M  6.3M   99M   7% /boot/efi
+none             1.0M     0  1.0M   0% /run/credentials/systemd-networkd.service
+none             1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
+none             1.0M     0  1.0M   0% /run/credentials/serial-getty@ttyS0.service
+tmpfs             91M  8.0K   91M   1% /run/user/1000
+
+ubuntu@ip-172-31-46-81:~$ uptime
+ 14:54:06 up 6 min,  1 user,  load average: 0.00, 0.05, 0.02
+
+sudo apt update ; sudo apt upgrade
+
+=====Then download runner and config it=======
+
+Download
+# Create a folder
+$ mkdir actions-runner && cd actions-runner# Download the latest runner package
+$ curl -o actions-runner-linux-x64-2.336.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.336.0/actions-runner-linux-x64-2.336.0.tar.gz# Optional: Validate the hash
+$ echo "04cf0be1aff4c3ec3554466c39124ca250e3effd8873bb7e8d68535aa9505d5d  actions-runner-linux-x64-2.336.0.tar.gz" | shasum -a 256 -c# Extract the installer
+$ tar xzf ./actions-runner-linux-x64-2.336.0.tar.gz
+Configure
+# Create the runner and start the configuration experience
+$ ./config.sh --url https://github.com/abusule/Git_assignment --token A7BYZWSJRAUPK3YZX7C5OOLKSGXZI# Last step, run it!
+$ ./run.sh
+Using your self-hosted runner
+# Use this YAML in your workflow file for each job
+runs-on: self-hosted
+
+ubuntu@ip-172-31-46-81:~/actions-runner$ ./run.sh
+
+√ Connected to GitHub
+
+Current runner version: '2.336.0'
+2026-08-28 15:06:54Z: Listening for Jobs
+^CExiting...
+Runner listener exit with 0 return code, stop the service, no retry needed.
+Exiting runner...
+ubuntu@ip-172-31-46-81:~/actions-runner$ 
+ubuntu@ip-172-31-46-81:~/actions-runner$ 
+ubuntu@ip-172-31-46-81:~/actions-runner$ systemctl | grep -i runner
+
+ubuntu@ip-172-31-46-81:~/actions-runner$ 
+ubuntu@ip-172-31-46-81:~/actions-runner$ ll
+total 220836
+drwxr-xr-x  6 ubuntu ubuntu      4096 Aug 28 15:06 ./
+drwxr-x---  7 ubuntu ubuntu      4096 Aug 28 15:03 ../
+-rw-rw-r--  1 ubuntu ubuntu       266 Aug 28 15:06 .credentials
+-rw-------  1 ubuntu ubuntu      1667 Aug 28 15:04 .credentials_rsaparams
+-rw-rw-r--  1 ubuntu ubuntu        13 Aug 28 15:04 .env
+-rw-rw-r--  1 ubuntu ubuntu        99 Aug 28 15:04 .path
+-rw-rw-r--  1 ubuntu ubuntu       389 Aug 28 15:06 .runner
+drwxrwxr-x  2 ubuntu ubuntu      4096 Aug 28 15:06 _diag/
+drwxrwxr-x  2 ubuntu ubuntu      4096 Aug 28 15:06 _work/
+-rw-rw-r--  1 ubuntu ubuntu 226035903 Aug 28 15:03 actions-runner-linux-x64-2.336.0.tar.gz
+drwxr-xr-x 17 ubuntu ubuntu     16384 Jul 20 17:43 bin/
+-rwxr-xr-x  1 ubuntu ubuntu      2458 Jul 20 17:42 config.sh*
+-rwxr-xr-x  1 ubuntu ubuntu       646 Jul 20 17:42 env.sh*
+drwxr-xr-x  6 ubuntu ubuntu      4096 Jul 20 17:43 externals/
+-rw-r--r--  1 ubuntu ubuntu      1824 Jul 20 17:42 run-helper.cmd.template
+-rwxr-xr-x  1 ubuntu ubuntu      2866 Aug 28 15:06 run-helper.sh*
+-rwxr-xr-x  1 ubuntu ubuntu      2866 Jul 20 17:42 run-helper.sh.template*
+-rwxr-xr-x  1 ubuntu ubuntu      2885 Jul 20 17:42 run.sh*
+-rwxr-xr-x  1 ubuntu ubuntu       751 Jul 20 17:42 safe_sleep.sh*
+-rwxr-xr-x  1 ubuntu ubuntu      5232 Aug 28 15:06 svc.sh*
+ubuntu@ip-172-31-46-81:~/actions-runner$ 
+
+====To create svc as a service
+
+ubuntu@ip-172-31-46-81:~/actions-runner$  ./svc.sh
+Must run as sudo
+ubuntu@ip-172-31-46-81:~/actions-runner$ sudo ./svc.sh
+
+Usage:
+./svc.sh [install, start, stop, status, uninstall]
+Commands:
+   install [user]: Install runner service as Root or specified user.
+   start: Manually start the runner service.
+   stop: Manually stop the runner service.
+   status: Display status of runner service.
+   uninstall: Uninstall runner service.
+
+ubuntu@ip-172-31-46-81:~/actions-runner$ sudo ./svc.sh install
+Creating launch runner in /etc/systemd/system/actions.runner.abusule-Git_assignment.aws-runner.service
+Run as user: ubuntu
+Run as uid: 1000
+gid: 1000
+Created symlink '/etc/systemd/system/multi-user.target.wants/actions.runner.abusule-Git_assignment.aws-runner.service' → '/etc/systemd/system/actions.runner.abusule-Git_assignment.aws-runner.service'.
+ubuntu@ip-172-31-46-81:~/actions-runner$ 
+
+ubuntu@ip-172-31-46-81:~/actions-runner$ systemctl | grep -i runner
+ubuntu@ip-172-31-46-81:~/actions-runner$ sudo ./svc.sh start
+
+/etc/systemd/system/actions.runner.abusule-Git_assignment.aws-runner.service
+● actions.runner.abusule-Git_assignment.aws-runner.service - GitHub Actions Runner (abusule-Git_assignment.aws-runner)
+     Loaded: loaded (/etc/systemd/system/actions.runner.abusule-Git_assignment.aws-runner.service; enabled; preset: enabled)
+     Active: active (running) since Fri 2026-08-28 15:21:22 UTC; 16ms ago
+ Invocation: 1aab97fd107f4a2fa7077e5c1fc6dcaa
+   Main PID: 2107 (runsvc.sh)
+      Tasks: 2 (limit: 627)
+     Memory: 1M (peak: 2.2M)
+        CPU: 9ms
+     CGroup: /system.slice/actions.runner.abusule-Git_assignment.aws-runner.service
+             ├─2107 /bin/bash /home/ubuntu/actions-runner/ru…
+             └─2109 cat .path
+
+Aug 28 15:21:22 ip-172-31-46-81 systemd[1]: Started action…).
+Aug 28 15:21:22 ip-172-31-46-81 runsvc.sh[2107]: .path=/usr…n
+Hint: Some lines were ellipsized, use -l to show in full.
+ubuntu@ip-172-31-46-81:~/actions-runner$ 
+ubuntu@ip-172-31-46-81:~/actions-runner$ systemctl | grep -i runner
+  actions.runner.abusule-Git_assignment.aws-runner.service                     loaded active running   GitHub Actions Runner (abusule-Git_assignment.aws-runner)
+ubuntu@ip-172-31-46-81:~/actions-runner$ 
+
+===Check the runner status in github
+
+====Docker in Linux
+install docker
+
+ubuntu@ip-172-31-46-81:~/actions-runner$ docker ps
+Command 'docker' not found, but can be installed with:
+sudo apt install docker.io      # version 29.1.3-0ubuntu4.1, or
+sudo apt install podman-docker  # version 5.7.0+ds2-3build1
+ubuntu@ip-172-31-46-81:~/actions-runner$ sudo apt install docker.io
+The following package was automatically installed and is no longer required:
+  pollinate
+Use 'sudo apt autoremove' to remove it.
+
+Installing:
+  docker.io
+
+Installing dependencies:
+  bridge-utils  dns-root-data  pigz  ubuntu-fan
+  containerd    dnsmasq-base   runc
+
+Suggested packages:
+  ifupdown        debootstrap        rinse
+  aufs-tools      docker-buildx      rootlesskit
+  cgroupfs-mount  docker-compose-v2  zfs-fuse
+  | cgroup-lite   docker-doc         | zfsutils
+
+Summary:
+  Upgrading: 0, Installing: 8, Removing: 0, Not Upgrading: 2
+  Download size: 74.0 MB
+  Space needed: 281 MB / 3329 MB available
+
+Continue? [Y/n] Y
+Get:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu resolute/universe amd64v3 pigz amd64 2.8-1build1 [68.5 kB]
+Get:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu resolute/main amd64v3 bridge-utils amd64 1.7.1-4ubuntu3 [34.8 kB]
+Get:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu resolute/main amd64v3 runc amd64 1.4.0-0ubuntu1 [9829 kB]
+Get:4 http://us-east-1.ec2.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 containerd amd64 2.2.2-0ubuntu1.1 [28.1 MB]
+Get:5 http://us-east-1.ec2.archive.ubuntu.com/ubuntu resolute/main amd64v3 dns-root-data all 2025080400build1 [6022 B]
+Get:6 http://us-east-1.ec2.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 dnsmasq-base amd64 2.92-1ubuntu0.4 [441 kB]
+Get:7 http://us-east-1.ec2.archive.ubuntu.com/ubuntu resolute-updates/universe amd64v3 docker.io amd64 29.1.3-0ubuntu4.1 [35.5 MB]
+Get:8 http://us-east-1.ec2.archive.ubuntu.com/ubuntu resolute/universe amd64v3 ubuntu-fan all 0.12.17 [34.3 kB]
+Fetched 74.0 MB in 14s (5145 kB/s)                          
+Preconfiguring packages ...
+Selecting previously unselected package pigz.
+(Reading database ... 124145 files and directories currently installed.)
+Preparing to unpack .../0-pigz_2.8-1build1_amd64v3.deb ...
+Unpacking pigz (2.8-1build1) ...
+Selecting previously unselected package bridge-utils.
+Preparing to unpack .../1-bridge-utils_1.7.1-4ubuntu3_amd64v3.deb ...
+Unpacking bridge-utils (1.7.1-4ubuntu3) ...
+Selecting previously unselected package runc.
+Preparing to unpack .../2-runc_1.4.0-0ubuntu1_amd64v3.deb ...
+Unpacking runc (1.4.0-0ubuntu1) ...
+Selecting previously unselected package containerd.
+Preparing to unpack .../3-containerd_2.2.2-0ubuntu1.1_amd64v3.deb ...
+Unpacking containerd (2.2.2-0ubuntu1.1) ...
+Selecting previously unselected package dns-root-data.
+Preparing to unpack .../4-dns-root-data_2025080400build1_all.deb ...
+Unpacking dns-root-data (2025080400build1) ...
+Selecting previously unselected package dnsmasq-base.
+Preparing to unpack .../5-dnsmasq-base_2.92-1ubuntu0.4_amd64v3.deb ...
+Unpacking dnsmasq-base (2.92-1ubuntu0.4) ...
+Selecting previously unselected package docker.io.
+Preparing to unpack .../6-docker.io_29.1.3-0ubuntu4.1_amd64v3.deb ...
+Unpacking docker.io (29.1.3-0ubuntu4.1) ...
+Selecting previously unselected package ubuntu-fan.
+Preparing to unpack .../7-ubuntu-fan_0.12.17_all.deb ...
+Unpacking ubuntu-fan (0.12.17) ...
+Setting up dnsmasq-base (2.92-1ubuntu0.4) ...
+Setting up runc (1.4.0-0ubuntu1) ...
+Setting up dns-root-data (2025080400build1) ...
+Setting up bridge-utils (1.7.1-4ubuntu3) ...
+Setting up pigz (2.8-1build1) ...
+Setting up containerd (2.2.2-0ubuntu1.1) ...
+Created symlink '/etc/systemd/system/multi-user.target.wants/containerd.service' → '/usr/lib/systemd/system/containerd.service'.
+Setting up ubuntu-fan (0.12.17) ...
+Created symlink '/etc/systemd/system/multi-user.target.wants/ubuntu-fan.service' → '/usr/lib/systemd/system/ubuntu-fan.service'.
+Setting up docker.io (29.1.3-0ubuntu4.1) ...
+Created symlink '/etc/systemd/system/multi-user.target.wants/docker.service' → '/usr/lib/systemd/system/docker.service'.
+Created symlink '/etc/systemd/system/sockets.target.wants/docker.socket' → '/usr/lib/systemd/system/docker.socket'.
+Processing triggers for dbus (1.16.2-2ubuntu4) ...
+Processing triggers for man-db (2.13.1-1build1) ...
+Scanning processes...                                        
+Scanning candidates...                                       
+Scanning linux images...                                     
+
+Running kernel seems to be up-to-date.
+
+Restarting services...
+
+Service restarts being deferred:
+ systemctl restart unattended-upgrades.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries
+ on this host.
+ubuntu@ip-172-31-46-81:~/actions-runner$ 
+
+ystem information as of Fri Aug 28 16:07:25 UTC 2026
+
+  System load:  0.02              Temperature:           -273.1 C
+  Usage of /:   56.8% of 6.61GB   Processes:             123
+  Memory usage: 39%               Users logged in:       0
+  Swap usage:   0%                IPv4 address for ens5: 172.31.46.81
+
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+Last login: Fri Aug 28 14:51:21 2026 from 159.2.9.174
+ubuntu@ip-172-31-46-81:~$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+ubuntu@ip-172-31-46-81:~$ newgrp docker
+ubuntu@ip-172-31-46-81:~$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+ubuntu@ip-172-31-46-81:~$ ls -al
+total 56
+drwxr-x--- 7 ubuntu ubuntu 4096 Aug 28 15:03 .
+drwxr-xr-x 3 root   root   4096 Aug 27 01:26 ..
+-rw------- 1 ubuntu ubuntu 1998 Aug 28 16:07 .bash_history
+-rw-r--r-- 1 ubuntu ubuntu  220 Feb 13  2026 .bash_logout
+-rw-r--r-- 1 ubuntu ubuntu 3771 Feb 13  2026 .bashrc
+drwx------ 2 ubuntu ubuntu 4096 Aug 27 01:29 .cache
+drwxrwxr-x 7 ubuntu ubuntu 4096 Aug 27 17:04 .git
+-rw-rw-r-- 1 ubuntu ubuntu   82 Aug 27 10:50 .gitconfig
+-rw------- 1 ubuntu ubuntu   20 Aug 27 17:03 .lesshst
+-rw-r--r-- 1 ubuntu ubuntu  807 Feb 13  2026 .profile
+drwx------ 2 ubuntu ubuntu 4096 Aug 27 01:26 .ssh
+-rw------- 1 ubuntu ubuntu 2351 Aug 27 16:53 .viminfo
+drwxr-xr-x 6 ubuntu ubuntu 4096 Aug 28 15:19 actions-runner
+drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 27 16:53 assignment_git
+ubuntu@ip-172-31-46-81:~$ cd actions-runner/
+ubuntu@ip-172-31-46-81:~/actions-runner$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+ubuntu@ip-172-31-46-81:~/actions-runner$ sudo systemctl start docker
+ubuntu@ip-172-31-46-81:~/actions-runner$ sudo systemctl status docker
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/usr/lib/systemd/system/docker.service;>
+     Active: active (running) since Fri 2026-08-28 15:37:20 >
+ Invocation: e34261f04fe646b9aa5bb02306cd6189
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 2950 (dockerd)
+      Tasks: 10
+     Memory: 55.6M (peak: 92.4M)
+        CPU: 571ms
+     CGroup: /system.slice/docker.service
+             └─2950 /usr/bin/dockerd -H fd:// --containerd=/>
+
+Aug 28 15:37:20 ip-172-31-46-81 dockerd[2950]: time="2026-08>
+Aug 28 15:37:20 ip-172-31-46-81 dockerd[2950]: time="2026-08>
+Aug 28 15:37:20 ip-172-31-46-81 dockerd[2950]: time="2026-08>
+Aug 28 15:37:20 ip-172-31-46-81 dockerd[2950]: time="2026-08>
+ubuntu@ip-172-31-46-81:~/actions-runner$ sudo systemctl enable docker
+ubuntu@ip-172-31-46-81:~/actions-runner$ groups
+docker adm cdrom sudo dip lxd ubuntu
+ubuntu@ip-172-31-46-81:~/actions-runner$ sudo docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+ubuntu@ip-172-31-46-81:~/actions-runner$ sudo usermod -aG docker ubuntu
+ubuntu@ip-172-31-46-81:~/actions-runner$ getent group docker
+docker:x:109:ubuntu
+ubuntu@ip-172-31-46-81:~/actions-runner$ newgrp docker
+ubuntu@ip-172-31-46-81:~/actions-runner$ 
+ubuntu@ip-172-31-46-81:~/actions-runner$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+ubuntu@ip-172-31-46-81:~/actions-runner$ docker ps
+CONTAINER ID   IMAGE                          COMMAND                  CREATED         STATUS         PORTS                                 NAMES
+01c4284ae880   kniru/techmax-website:latest   "/docker-entrypoint.…"   2 minutes ago   Up 2 minutes   0.0.0.0:80->80/tcp, [::]:80->80/tcp   techmax-assignment
+ubuntu@ip-172-31-46-81:~/actions-runner$ systemctl ifconfig
+Unknown command verb 'ifconfig'.
+ubuntu@ip-172-31-46-81:~/actions-runner$ curl ifconfig.me
+54.174.19.44ubuntu@ip-172-31-46-81:~/actions-runner$ 
