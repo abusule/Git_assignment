@@ -11,13 +11,7 @@ jobs:
     runs-on: aws-self-hosted
 
     steps:
-      - name: Check Docker
-        run: | 
-         whoami
-         docker --version
-         docker ps -a
-
-      - name: Docker pull image
+        - name: Docker pull image
         run: docker pull kniru/techmax-website:latest
 
       - name: Remove existing container
