@@ -19,8 +19,8 @@ jobs:
       - name: Docker pull image
         run: docker pull abusule/techmax-website:latest
 
-    - name: Remove existing container
-      run: docker rm -f techmax-assignment || true
+      - name: Remove existing container
+        run: docker rm -f techmax-assignment || true
 
       - name : Run pulled image
         run: docker run -d --name techmax-assignment -p 80:80 abusule/techmax-website:latest  
