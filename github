@@ -538,3 +538,11 @@ ubuntu@ip-172-31-46-81:~/actions-runner$ systemctl ifconfig
 Unknown command verb 'ifconfig'.
 ubuntu@ip-172-31-46-81:~/actions-runner$ curl ifconfig.me
 54.174.19.44ubuntu@ip-172-31-46-81:~/actions-runner$ 
+
+
+
+aws host name variables when deploying a build image into ecr
+
+cat the ec2 .pem and past it in the github
+and use the Docker Host and use the ec2 public IP ID
+
